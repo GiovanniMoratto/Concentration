@@ -13,7 +13,13 @@ import UIKit
 class ConcentrationViewController: UIViewController {
     
     /// Variável com o valor de clicks
-    var flipCount = 0
+    var flipCount = 0 {
+        /// Verifica se o valor sofreu alteração e executa lógica
+        didSet {
+            /// Altera o texto da label atualizando contagem
+            flipCountLabel.text = "Flips: \(flipCount)"
+        }
+    }
     
     /// Váriavel com o texto da Label
     @IBOutlet weak var flipCountLabel: UILabel!
@@ -22,8 +28,6 @@ class ConcentrationViewController: UIViewController {
     @IBAction func touchCard(_ sender: UIButton) {
         /// Acrescenta click no total de contagem
         flipCount += 1
-        /// Altera o texto da label atualizando contagem
-        flipCountLabel.text = "Flips: \(flipCount)"
         /// Vira o card
         flipCard(withEmoji: "👻", on: sender)
     }
@@ -31,8 +35,6 @@ class ConcentrationViewController: UIViewController {
     @IBAction func touchSecondCard(_ sender: UIButton) {
         /// Acrescenta click no total de contagem
         flipCount += 1
-        /// Altera o texto da label atualizando contagem
-        flipCountLabel.text = "Flips: \(flipCount)"
         /// Vira o card
         flipCard(withEmoji: "🎃", on: sender)
     }
