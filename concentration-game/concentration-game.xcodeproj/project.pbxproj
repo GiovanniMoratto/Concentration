@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B119E6E426F3B50100C418EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E6E326F3B50100C418EB /* AppDelegate.swift */; };
 		B119E6E626F3B50100C418EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E6E526F3B50100C418EB /* SceneDelegate.swift */; };
-		B119E6E826F3B50100C418EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E6E726F3B50100C418EB /* ViewController.swift */; };
+		B119E6E826F3B50100C418EB /* ConcentrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E6E726F3B50100C418EB /* ConcentrationViewController.swift */; };
 		B119E6EB26F3B50100C418EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B119E6E926F3B50100C418EB /* Main.storyboard */; };
 		B119E6ED26F3B50300C418EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B119E6EC26F3B50300C418EB /* Assets.xcassets */; };
 		B119E6F026F3B50300C418EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B119E6EE26F3B50300C418EB /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		B119E6E026F3B50100C418EB /* concentration-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "concentration-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B119E6E326F3B50100C418EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B119E6E526F3B50100C418EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B119E6E726F3B50100C418EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B119E6E726F3B50100C418EB /* ConcentrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationViewController.swift; sourceTree = "<group>"; };
 		B119E6EA26F3B50100C418EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B119E6EC26F3B50300C418EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B119E6EF26F3B50300C418EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				B119E71726F3B63D00C418EB /* Supporting Files */,
-				B119E6E726F3B50100C418EB /* ViewController.swift */,
+				B119E6E726F3B50100C418EB /* ConcentrationViewController.swift */,
 				B119E6E926F3B50100C418EB /* Main.storyboard */,
 				B119E6F126F3B50300C418EB /* Info.plist */,
 			);
@@ -145,7 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B119E6E826F3B50100C418EB /* ViewController.swift in Sources */,
+				B119E6E826F3B50100C418EB /* ConcentrationViewController.swift in Sources */,
 				B119E6E426F3B50100C418EB /* AppDelegate.swift in Sources */,
 				B119E6E626F3B50100C418EB /* SceneDelegate.swift in Sources */,
 			);
