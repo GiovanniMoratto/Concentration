@@ -10,8 +10,16 @@ import UIKit
 class ViewController: UIViewController {
     
     lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-    var emojiChoices = ["🎃", "👻", "🦇", "😱", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
     var emoji = [Int:String]()
+    var emojiChoices = [
+            "faces" : ["😀","😍","😴","😱","🤣","😂","😉","🙄","😬", "🤨"],
+            "halloween" :["👻","🎃","🧛🏼‍♂️","🦇","🍬","🍭","🍫","😈","🧟‍♂️", "🍎"],
+            "animals" : ["🐶","🐱","🐼","🦊","🦁","🐯","🐨","🐮","🐷", "🐵"],
+            "summer" : ["🏄🏼‍♂️","🏊🏼‍♀️","☀️","🌈","🌼","🏖","⛱","🏝","🎣", "🍦"],
+            "winter" : ["⛄️","☃️","🌨","❄️","🎿","🏂","⛷","🏒","⛸", "🛷"],
+            "jobs" : ["👩🏼‍💻","👨🏼‍🏫","👩🏼‍🔬","👨🏼‍🍳","👩🏼‍🌾","👩🏼‍🚀","👩🏼‍✈️","👨🏼‍⚖️","👩🏼‍🔧", "👨🏼‍🏭"]
+    ]
+    lazy var themeEmoji = [String](setThemeEmoji())
     
     @IBOutlet weak var flipCountLabel: UILabel!
     
@@ -42,12 +50,20 @@ class ViewController: UIViewController {
     }
     
     func getEmoji(for card: Card) -> String {
-        // Add the emoji choice to the emoji dictionary
-        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+        //Add the emoji choice to the emoji dictionary
+        if emoji[card.identifier] == nil, themeEmoji.count > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(themeEmoji.count)))
+            emoji[card.identifier] = themeEmoji.remove(at: randomIndex)
         }
         return emoji[card.identifier] ?? "?"
+    }
+    
+    func setThemeEmoji() -> [String] {
+        let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+        let themes = Array(emojiChoices.keys)
+        let theme = themes[randomIndex]
+        themeLabel.text = "\(theme)"
+        return emojiChoices[theme] ?? ["?"]
     }
 }
 
