@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Concentration
+//  concentration-game
 //
-//  Created by Giovanni Vicentin Moratto on 14/09/21.
+//  Created by Giovanni Vicentin Moratto on 16/09/21.
 //
 
 import UIKit
