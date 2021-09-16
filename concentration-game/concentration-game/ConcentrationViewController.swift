@@ -18,8 +18,13 @@ class ConcentrationViewController: UIViewController {
         flipCard(withEmoji: "👻", on: sender)
     }
     
+    @IBAction func touchSecondCard(_ sender: UIButton) {
+        flipCard(withEmoji: "🎃", on: sender)
+    }
+    
     /// Função para gerar efeito visual de virada  no card
     func flipCard(withEmoji emoji: String, on button: UIButton){
+        print("flipCard(withEmoji: \(emoji)")
         /// Verifica se o titulo atual do botão é igual ao emoji
         if button.currentTitle == emoji {
             /// Apaga emoji
