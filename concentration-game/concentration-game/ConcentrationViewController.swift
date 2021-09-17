@@ -21,22 +21,28 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    /// Variável com array de cards
+    /// Variável com conteúdo para os cards
+    var emojiChoices = ["🎃", "👻", "🎃", "👻"]
+    
+    /// Variável com array de cards conectados ao UI
     @IBOutlet var cardButtons: [UIButton]!
     
-    /// Variável com o texto da Label
+    /// Variável com texto da Label que mostra quantos clicks foram feitos
     @IBOutlet weak var flipCountLabel: UILabel!
     
     /// Método para capturar ação de toque no card
     @IBAction func touchCard(_ sender: UIButton) {
         /// Acrescenta click no total de contagem
         flipCount += 1
-        /// Cria uma variavel e associa a um optional do valor do index de array de cards
-        let cardNumber = cardButtons.firstIndex(of: sender)
-        print("cardNumber = \(cardNumber)")
-        
-        /// Vira o card
-        flipCard(withEmoji: "👻", on: sender)
+        /// Cria uma variavel e associa a um optional com o valor do index do array de cards correspondente ao clique
+        /// Extrai do Optional com o guard let e o retorna o valor
+        guard let cardNumber = cardButtons.firstIndex(of: sender) else {
+            /// Caso o card não esteja conectado à variável cardButtons, imprimi uma mensagem no console e retorna
+            print("Chosen card was not in the cardButtons Array.")
+            return
+        }
+        /// Vira o card e inseri emoji correspondente ao index
+        flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
     }
     
     /// Função para gerar efeito visual de virada  no card
