@@ -21,22 +21,22 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    /// Váriavel com o texto da Label
+    /// Variável com array de cards
+    @IBOutlet var cardButtons: [UIButton]!
+    
+    /// Variável com o texto da Label
     @IBOutlet weak var flipCountLabel: UILabel!
     
     /// Método para capturar ação de toque no card
     @IBAction func touchCard(_ sender: UIButton) {
         /// Acrescenta click no total de contagem
         flipCount += 1
+        /// Cria uma variavel e associa a um optional do valor do index de array de cards
+        let cardNumber = cardButtons.firstIndex(of: sender)
+        print("cardNumber = \(cardNumber)")
+        
         /// Vira o card
         flipCard(withEmoji: "👻", on: sender)
-    }
-    
-    @IBAction func touchSecondCard(_ sender: UIButton) {
-        /// Acrescenta click no total de contagem
-        flipCount += 1
-        /// Vira o card
-        flipCard(withEmoji: "🎃", on: sender)
     }
     
     /// Função para gerar efeito visual de virada  no card
