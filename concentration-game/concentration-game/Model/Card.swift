@@ -13,7 +13,7 @@ struct Card {
     
     // MARK: - Variables
     
-    var isFaceUp: Bool = false  // variável com informação de que se o card atual está ou não virado para cima. Inicializada como falsa
+    var isFaceUp: Bool = false  // variável com informação de que se o card atual está ou não virado para cima. Inicializada como falsa. Sua alteração gera efeito visual de virada no card.
     
     var isMatched: Bool = false // variável com informação de que o se card atual já combinou com outro card. Inicializada como falsa
     

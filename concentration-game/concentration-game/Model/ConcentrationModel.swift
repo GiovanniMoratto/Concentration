@@ -19,6 +19,11 @@ class ConcentrationModel {
     func chooseCard(at index: Int){
         /// métofo para desencadear lógica de operações após a escolha do card
         
+        if cards[index].isFaceUp {
+            cards[index].isFaceUp = false
+        } else {
+            cards[index].isFaceUp = true
+        }
     }
     
     // MARK: - Initializers (Constructors)
