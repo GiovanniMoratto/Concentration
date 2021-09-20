@@ -87,12 +87,16 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
+    /// retorna um emoji para o card fornecido
     func emoji(for card: Card) -> String {
         
-        // Se o cartão não tiver um emoji definido, adicione um aleatório
+        // se o cartão não tiver um emoji definido, adicione um aleatório
+        // a condicional precisa do "emojiChoices.count > 0" por conta do intervalo do arc4random_uniform
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
             
-            // índice aleatório entre 0 e número de opções de emoji
+            // índice aleatório entre 0 e número de opções de emoji -1
+            // arc4random_uniform recebe um tipo UInt32
+            // randomIndex precisa ser um Int
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
             
             // adicione o emoji aleatório a este cartão
