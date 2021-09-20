@@ -27,8 +27,12 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
+    var numberOfPairsOfCards: Int {
+        return (cardButtons.count + 1) / 2
+    }
+    
     // Lazy permite usar a variável de instância "cardButtons" quando ele for requisitada através de uma inicialização
-    lazy var game = ConcentrationModel(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    lazy var game = ConcentrationModel(numberOfPairsOfCards: numberOfPairsOfCards)
     
     // MARK: - IBOutlet
     
