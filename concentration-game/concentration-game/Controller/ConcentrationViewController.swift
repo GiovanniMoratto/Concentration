@@ -13,13 +13,13 @@ class ConcentrationViewController: UIViewController {
     // MARK: - Variables
     
     // variável com conteúdo para os cards
-    var emojiChoices: Array = ["🎃", "👻", "🦇", "😱", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
+    private var emojiChoices: Array = ["🎃", "👻", "🦇", "😱", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
     
     // variavel com emoji correspondente para cada card/botão
-    var emoji: Dictionary<Int,String> = [Int:String]()
+    private var emoji: Dictionary<Int,String> = [Int:String]()
     
     // variável com o valor de clicks
-    var flipCount: Int = 0 {
+    private(set) var flipCount: Int = 0 {
         // verifica se o valor sofreu alteração e executa lógica
         didSet {
             // altera o texto da label atualizando contagem
@@ -27,25 +27,25 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    var numberOfPairsOfCards: Int {
+    public var numberOfPairsOfCards: Int {
         return (cardButtons.count + 1) / 2
     }
     
     // Lazy permite usar a variável de instância "cardButtons" quando ele for requisitada através de uma inicialização
-    lazy var game = ConcentrationModel(numberOfPairsOfCards: numberOfPairsOfCards)
+    private lazy var game = ConcentrationModel(numberOfPairsOfCards: numberOfPairsOfCards)
     
     // MARK: - IBOutlet
     
     // variável com array de cards conectados ao UI
-    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet private var cardButtons: [UIButton]!
     
     // variável com texto da label que mostra quantos clicks foram feitos
-    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet private weak var flipCountLabel: UILabel!
     
     // MARK: - IBAction
     
     /// método para capturar ação de toque no card
-    @IBAction func touchCard(_ sender: UIButton) {
+    @IBAction private func touchCard(_ sender: UIButton) {
         
         // acrescenta click no total de contagem
         flipCount += 1
@@ -66,7 +66,7 @@ class ConcentrationViewController: UIViewController {
     // MARK: - Functions
     
     /// Mantém a visualização atualizada com base no estado do modelo
-    func updateViewFromModel() {
+    private func updateViewFromModel() {
         
         // loop percorrendo todos os card pelos indices
         for index in cardButtons.indices {
@@ -92,7 +92,7 @@ class ConcentrationViewController: UIViewController {
     }
     
     /// retorna um emoji para o card fornecido
-    func emoji(for card: Card) -> String {
+    private func emoji(for card: Card) -> String {
         
         // se o cartão não tiver um emoji definido, adicione um aleatório
         // a condicional precisa do "emojiChoices.count > 0" por conta do intervalo do arc4random_uniform

@@ -14,11 +14,10 @@ class ConcentrationModel {
     // MARK: - Variables
     
     // variável com os cards do game
-    var cards: Array<Card> = [Card]()
+    private(set) var cards: Array<Card> = [Card]()
     
     // variável com informação se há ou não apenas 1 card virado para cima
-    var indexOfOneAndOnlyFaceUpCard: Int? {
-        
+    private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
             var foundIndex: Int?
             // verifica todos os cards através dos indices
@@ -53,7 +52,7 @@ class ConcentrationModel {
     // MARK: - Functions
     
     /// métofo para desencadear lógica de operações após a escolha do card
-    func chooseCard(at index: Int){
+    public func chooseCard(at index: Int){
         // se o card for incompativel
         if !cards[index].isMatched {
             // se já existe um card virado para cima, verifique se corresponde ao escolhido
@@ -77,7 +76,7 @@ class ConcentrationModel {
     // MARK: - Initializers (Constructors)
     
     /// constroi o game com base no número de pares informado
-    init(numberOfPairsOfCards: Int) {
+    public init(numberOfPairsOfCards: Int) {
         // cria todos os cards do game
         for _ in 1...numberOfPairsOfCards {
             // instância um card
