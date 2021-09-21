@@ -16,6 +16,7 @@
 		B119E71C26F43F3700C418EB /* ConcentrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E71B26F43F3700C418EB /* ConcentrationModel.swift */; };
 		B119E71E26F4408300C418EB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E71D26F4408300C418EB /* Card.swift */; };
 		B15D00B126FA8A4C001A41AB /* MutableCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15D00B026FA8A4C001A41AB /* MutableCollectionExtension.swift */; };
+		B15D00B326FA92F0001A41AB /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15D00B226FA92F0001A41AB /* CollectionExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B119E71B26F43F3700C418EB /* ConcentrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationModel.swift; sourceTree = "<group>"; };
 		B119E71D26F4408300C418EB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		B15D00B026FA8A4C001A41AB /* MutableCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCollectionExtension.swift; sourceTree = "<group>"; };
+		B15D00B226FA92F0001A41AB /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				B15D00B026FA8A4C001A41AB /* MutableCollectionExtension.swift */,
+				B15D00B226FA92F0001A41AB /* CollectionExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B119E6E826F3B50100C418EB /* ConcentrationViewController.swift in Sources */,
+				B15D00B326FA92F0001A41AB /* CollectionExtension.swift in Sources */,
 				B119E6E426F3B50100C418EB /* AppDelegate.swift in Sources */,
 				B15D00B126FA8A4C001A41AB /* MutableCollectionExtension.swift in Sources */,
 				B119E71E26F4408300C418EB /* Card.swift in Sources */,
