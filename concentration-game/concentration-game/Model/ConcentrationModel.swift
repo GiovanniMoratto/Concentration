@@ -60,7 +60,7 @@ struct ConcentrationModel {
             // se já existe um card virado para cima, verifique se corresponde ao escolhido
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 // Se eles corresponderem, marque-os como matched
-                if cards[matchIndex].identifier == cards[index].identifier {
+                if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                 }

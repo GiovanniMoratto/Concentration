@@ -13,10 +13,11 @@ class ConcentrationViewController: UIViewController {
     // MARK: - Variables
     
     // variável com conteúdo para os cards
-    var emojiChoices: Array = ["🎃", "👻", "🦇", "😱", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
+//    var emojiChoices: Array = ["🎃", "👻", "🦇", "😱", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
+    var emojiChoices: String = "🎃👻🦇😱🤡💀👹👽🧙🏻‍♀️🧟‍♀️🍭🍬"
     
     // variavel com emoji correspondente para cada card/botão
-    private var emoji: Dictionary<Int,String> = [Int:String]()
+    private var emoji: Dictionary<Card,String> = [Card:String]()
     
     // variável com o valor de clicks
     private(set) var flipCount: Int = 0 {
@@ -115,17 +116,19 @@ class ConcentrationViewController: UIViewController {
     /// retorna um emoji para o card fornecido
     private func emoji(for card: Card) -> String {
         // input validation
-        assert(game.cards.indices.contains(card.identifier), "ConcentrationViewController.emoji(at: \(card)): card was not in cards")
+        assert(game.cards.contains(card), "ConcentrationViewController.emoji(at: \(card)): card was not in cards")
         
         // se o cartão não tiver um emoji definido, adicione um aleatório
         // a condicional precisa do "emojiChoices.count > 0" por conta do intervalo do arc4random_uniform
-        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
+        if emoji[card] == nil, emojiChoices.count > 0 {
             // remove o emoji do emojiChoices para que não seja selecionado novamente
-            emoji[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            //emoji[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
         }
         
         // retorna o emoji ou "?" se nenhum disponível
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
     
 }

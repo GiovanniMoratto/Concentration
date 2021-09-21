@@ -8,7 +8,7 @@
 import Foundation
 
 // representa o card usado no game (Struct = value type)
-struct Card {
+struct Card: Hashable {
     
     // MARK: - Variables
     
@@ -22,13 +22,13 @@ struct Card {
     var twoCardsFaceUp: Bool = false
     
     // variável com um identificador exclusivo para o cartão. (o par de cards correspondentes tem o mesmo identificador)
-    var identifier: Int
+    private var identifier: Int
     
     // MARK: - Static Variables
     
     // identificador estático que é aumentado toda vez que um novo é solicitado por getUniqueIdentifier(). Inicializada como zero
     private static var identifierFactory: Int = 0
-        
+
     // MARK: - Static Functions
     
     /// método para retornar um id único usado como um identificador de cartão
@@ -36,6 +36,18 @@ struct Card {
         
         identifierFactory += 1
         return identifierFactory
+    }
+    
+    // var hashValue: Int { return identifier } - Deprecated
+    /// hashValue
+    func hash(into hasher: inout Hasher) {
+            hasher.combine(identifier)
+            hasher.combine(identifier)
+        }
+    
+    /// protocols stubs
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
     
     // MARK: - Initializers (Constructors)
