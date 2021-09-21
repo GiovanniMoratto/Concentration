@@ -52,7 +52,9 @@ class ConcentrationModel {
     // MARK: - Functions
     
     /// métofo para desencadear lógica de operações após a escolha do card
-    public func chooseCard(at index: Int){
+    func chooseCard(at index: Int) {
+        // input validation
+        assert(cards.indices.contains(index), "ConcentrationModel.chooseCard(at: \(index)): chosen index not in the cards")
         // se o card for incompativel
         if !cards[index].isMatched {
             // se já existe um card virado para cima, verifique se corresponde ao escolhido
@@ -76,7 +78,9 @@ class ConcentrationModel {
     // MARK: - Initializers (Constructors)
     
     /// constroi o game com base no número de pares informado
-    public init(numberOfPairsOfCards: Int) {
+    init(numberOfPairsOfCards: Int) {
+        // input validation
+        assert(numberOfPairsOfCards > 0, "ConcentrationModel.init(at: \(numberOfPairsOfCards)): must have at least one pair of cards")
         // cria todos os cards do game
         for _ in 1...numberOfPairsOfCards {
             // instância um card

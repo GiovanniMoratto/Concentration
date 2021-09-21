@@ -27,7 +27,7 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    public var numberOfPairsOfCards: Int {
+    var numberOfPairsOfCards: Int {
         return (cardButtons.count + 1) / 2
     }
     
@@ -46,7 +46,6 @@ class ConcentrationViewController: UIViewController {
     
     /// método para capturar ação de toque no card
     @IBAction private func touchCard(_ sender: UIButton) {
-        
         // acrescenta click no total de contagem
         flipCount += 1
         
@@ -93,6 +92,8 @@ class ConcentrationViewController: UIViewController {
     
     /// retorna um emoji para o card fornecido
     private func emoji(for card: Card) -> String {
+        // input validation
+        assert(game.cards.indices.contains(card.identifier), "ConcentrationViewController.emoji(at: \(card)): card was not in cards")
         
         // se o cartão não tiver um emoji definido, adicione um aleatório
         // a condicional precisa do "emojiChoices.count > 0" por conta do intervalo do arc4random_uniform

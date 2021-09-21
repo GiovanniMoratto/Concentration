@@ -13,13 +13,13 @@ struct Card {
     // MARK: - Variables
     
     // variável com informação de que se o card atual está ou não virado para cima. Inicializada como falsa. Sua alteração gera efeito visual de virada no card.
-    public var isFaceUp: Bool = false
+    var isFaceUp: Bool = false
     
     // variável com informação de que o se card atual já combinou com outro card. Inicializada como falsa
-    public var isMatched: Bool = false
+    var isMatched: Bool = false
     
     // variável com um identificador exclusivo para o cartão. (o par de cards correspondentes tem o mesmo identificador)
-    public var identifier: Int
+    var identifier: Int
     
     // MARK: - Static Variables
     
@@ -38,7 +38,7 @@ struct Card {
     // MARK: - Initializers (Constructors)
     
     /// cria um cartão com o identificador fornecido. Ao instânciar o objeto passa a ser obrigatório declarar um valor ao(s) parâmetro(s) citados nos parênteses acima
-    public init() {
+    init() {
         
         // self == this no java
         self.identifier = Card.getUniqueIdentifier()
