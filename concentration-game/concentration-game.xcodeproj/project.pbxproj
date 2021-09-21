@@ -15,6 +15,7 @@
 		B119E6F026F3B50300C418EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B119E6EE26F3B50300C418EB /* LaunchScreen.storyboard */; };
 		B119E71C26F43F3700C418EB /* ConcentrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E71B26F43F3700C418EB /* ConcentrationModel.swift */; };
 		B119E71E26F4408300C418EB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E71D26F4408300C418EB /* Card.swift */; };
+		B15D00B126FA8A4C001A41AB /* MutableCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15D00B026FA8A4C001A41AB /* MutableCollectionExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B119E6F126F3B50300C418EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B119E71B26F43F3700C418EB /* ConcentrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationModel.swift; sourceTree = "<group>"; };
 		B119E71D26F4408300C418EB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B15D00B026FA8A4C001A41AB /* MutableCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCollectionExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		B119E6E226F3B50100C418EB /* concentration-game */ = {
 			isa = PBXGroup;
 			children = (
+				B15D00AF26FA8A1B001A41AB /* Extensions */,
 				B119E71A26F43E7B00C418EB /* View */,
 				B119E71926F43E7400C418EB /* Model */,
 				B119E71826F43E5700C418EB /* Controller */,
@@ -103,6 +106,14 @@
 				B119E6E926F3B50100C418EB /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B15D00AF26FA8A1B001A41AB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B15D00B026FA8A4C001A41AB /* MutableCollectionExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 			files = (
 				B119E6E826F3B50100C418EB /* ConcentrationViewController.swift in Sources */,
 				B119E6E426F3B50100C418EB /* AppDelegate.swift in Sources */,
+				B15D00B126FA8A4C001A41AB /* MutableCollectionExtension.swift in Sources */,
 				B119E71E26F4408300C418EB /* Card.swift in Sources */,
 				B119E6E626F3B50100C418EB /* SceneDelegate.swift in Sources */,
 				B119E71C26F43F3700C418EB /* ConcentrationModel.swift in Sources */,

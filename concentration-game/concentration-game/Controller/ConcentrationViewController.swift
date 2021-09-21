@@ -23,8 +23,7 @@ class ConcentrationViewController: UIViewController {
     private(set) var flipCount: Int = 0 {
         // verifica se o valor sofreu alteração e executa lógica
         didSet {
-            // altera o texto da label atualizando contagem
-            flipCountLabel.text = "Flips: \(flipCount)"
+            updateFlipCountLabel()
         }
     }
     
@@ -34,9 +33,6 @@ class ConcentrationViewController: UIViewController {
     
     // Lazy permite usar a variável de instância "cardButtons" quando ele for requisitada através de uma inicialização
     private lazy var game = ConcentrationModel(numberOfPairsOfCards: numberOfPairsOfCards)
-    
-    // variável com informação do numero de cards no game
-    let numberOfCards: Int = 12
     
     // variável com informação do tempo para remover os cards combinados
     let secondsToKickOff = 0.5
@@ -50,7 +46,11 @@ class ConcentrationViewController: UIViewController {
     @IBOutlet private var cardButtons: [UIButton]!
     
     // variável com texto da label que mostra quantos clicks foram feitos
-    @IBOutlet private weak var flipCountLabel: UILabel!
+    @IBOutlet private weak var flipCountLabel: UILabel! {
+        didSet {
+            updateFlipCountLabel()
+        }
+    }
     
     // MARK: - IBAction
     
@@ -129,6 +129,16 @@ class ConcentrationViewController: UIViewController {
         
         // retorna o emoji ou "?" se nenhum disponível
         return emoji[card] ?? "?"
+    }
+    
+    private func updateFlipCountLabel() {
+        let attributes: [NSAttributedString.Key:Any] = [
+            .strokeWidth : 5.0,
+            .strokeColor : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+        ]
+        let attributesString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+        // altera o texto da label atualizando contagem
+        flipCountLabel.attributedText = attributesString
     }
     
 }

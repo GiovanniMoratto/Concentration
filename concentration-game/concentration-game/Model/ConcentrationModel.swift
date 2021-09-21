@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // representa a model do game como value type
 struct ConcentrationModel {
@@ -18,26 +19,28 @@ struct ConcentrationModel {
     // variável com informação se há ou não apenas 1 card virado para cima
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
-            var foundIndex: Int?
-            // verifica todos os cards através dos indices
-            for index in cards.indices {
-                // encontra o card virado para cima
-                if cards[index].isFaceUp {
-                    // se foundIndex for nulo
-                    // se ainda não encontrou um card, este é o primeiro então defini como nulo
-                    if foundIndex == nil {
-                        // atribui um indice para o primeiro card
-                        foundIndex = index
-                    }
-                    else {
-                        // pelo menos duas cartas estão viradas para cima
-                        // retorna nulo
-                        return nil
-                    }
-                }
-            }
-            // começa nulo e se nunca for encontrado continua nulo, do contrario retorna um index. se esta nulo não há cards virados para cima
-            return foundIndex
+            let faceUpCardIndices: Array<Int> = cards.indices.filter { cards[$0].isFaceUp }
+            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
+//            var foundIndex: Int?
+//            // verifica todos os cards através dos indices
+//            for index in cards.indices {
+//                // encontra o card virado para cima
+//                if cards[index].isFaceUp {
+//                    // se foundIndex for nulo
+//                    // se ainda não encontrou um card, este é o primeiro então defini como nulo
+//                    if foundIndex == nil {
+//                        // atribui um indice para o primeiro card
+//                        foundIndex = index
+//                    }
+//                    else {
+//                        // pelo menos duas cartas estão viradas para cima
+//                        // retorna nulo
+//                        return nil
+//                    }
+//                }
+//            }
+//            // começa nulo e se nunca for encontrado continua nulo, do contrario retorna um index. se esta nulo não há cards virados para cima
+//            return foundIndex
         }
         set(newValue) {
             // vira todos para baixo, exceto o que acabou de ser definido e terá um novo valor
@@ -64,7 +67,6 @@ struct ConcentrationModel {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                 }
-                
                 // Vire a carta escolhida para cima - face-up
                 cards[index].isFaceUp = true
                 // atribui informação de que existem dois cards virados para cima
@@ -96,6 +98,13 @@ struct ConcentrationModel {
         }
         
         // TODO shuffle the cards
+        cards.shuffle()
     }
     
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
+    }
 }
