@@ -7,9 +7,8 @@
 
 import Foundation
 
-// criação de classe (reference type) para o game
-class ConcentrationModel {
-    
+// representa a model do game como value type
+struct ConcentrationModel {
     
     // MARK: - Variables
     
@@ -52,7 +51,8 @@ class ConcentrationModel {
     // MARK: - Functions
     
     /// métofo para desencadear lógica de operações após a escolha do card
-    func chooseCard(at index: Int) {
+    // como a model foi alterada de class para struct a funcão precisa ser declarada como mutavel para evitar conflito com a propriedade self
+    mutating func chooseCard(at index: Int) {
         // input validation
         assert(cards.indices.contains(index), "ConcentrationModel.chooseCard(at: \(index)): chosen index not in the cards")
         // se o card for incompativel
@@ -64,13 +64,19 @@ class ConcentrationModel {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                 }
+                
                 // Vire a carta escolhida para cima - face-up
                 cards[index].isFaceUp = true
+                // atribui informação de que existem dois cards virados para cima
+                cards[matchIndex].twoCardsFaceUp = true
+                cards[index].twoCardsFaceUp = true
             }
             // ou nenhuma carta ou duas cartas estão viradas para cima
             else {
                 // apenas 1 card virado para cima
                 indexOfOneAndOnlyFaceUpCard = index
+                // atribui informação de que não existem dois cards virados para cima
+                cards[index].twoCardsFaceUp = false
             }
         }
     }
