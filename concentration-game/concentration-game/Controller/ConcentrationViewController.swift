@@ -32,7 +32,7 @@ class ConcentrationViewController: UIViewController {
     }
     
     // Lazy permite usar a variável de instância "cardButtons" quando ele for requisitada através de uma inicialização
-    private lazy var game = ConcentrationModel(numberOfPairsOfCards: numberOfPairsOfCards)
+    private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
     // variável com informação do tempo para remover os cards combinados
     let secondsToKickOff = 0.5
@@ -141,19 +141,4 @@ class ConcentrationViewController: UIViewController {
         flipCountLabel.attributedText = attributesString
     }
     
-}
-
-extension Int {
-    // índice aleatório entre 0 e número de opções de emoji -1
-    // arc4random_uniform recebe um tipo UInt32
-    // precisa ser um Int
-    var arc4random: Int {
-        if self > 0 {
-            return Int(arc4random_uniform(UInt32(self)))
-        } else if self < 0 {
-            return -Int(arc4random_uniform(UInt32(abs(self))))
-        } else {
-            return 0
-        }
-    }
 }
