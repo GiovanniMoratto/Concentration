@@ -13,7 +13,7 @@ struct Concentration {
     // MARK: - Attributes
     
     private(set) var cards: Array<Card> = [Card]()
-    // Variável com os cards do game
+    // Variável que armazena um array com todos os cards do game
      
     /*
      O controle de acesso (private(set)) indica que a variavel pode ser lida mas não pode ser modificado externamente.
@@ -69,7 +69,9 @@ struct Concentration {
     
     // MARK: - Methods
     
-    /// método para desencadear lógica de operações após a escolha do card
+    /// Método para desencadear lógica de operações após a escolha do card.
+    /// Este método através do index enviado, irá verificar se houve combinações e virar os cards do game.
+    /// - Parameter index: Um valor inteiro que representa o indice no arrays de cards, utilizado para identificar um determinado card no game.
     mutating func chooseCard(at index: Int) {
         
         /*
@@ -147,18 +149,25 @@ struct Concentration {
     
     /// constroi o game com base no número de pares informado
     init(numberOfPairsOfCards: Int) {
-        // input validation
-        assert(numberOfPairsOfCards > 0, "ConcentrationModel.init(at: \(numberOfPairsOfCards)): must have at least one pair of cards")
-        // cria todos os cards do game
+
+        assert(numberOfPairsOfCards > 0 && numberOfPairsOfCards % 2 == 0, "ConcentrationModel.init(at: \(numberOfPairsOfCards)): must have at least one pair of cards")
+        
+        /*
+         Validação de dados de entrada no construtor, apenas valores pares e maiores que 0 serão aceitados.
+         */
+        
         for _ in 1...numberOfPairsOfCards {
-            // instância um card
+            // Laço de repetições seguindo o numero de pares recebido
+            
             let card = Card()
-            // adiciona um card ao array de cards junto com uma cópia, por ter utilizado uma struct ao invés de uma classe com um endereço de memória.
+            // Intância uma constante recebendo o objeto Card
+            
             cards += [card, card]
+            // Adiciona ao array de cards inicializado a constante criada com uma cópia da mesma
         }
         
-        // TODO shuffle the cards
         cards.shuffle()
+        // Mistura os cards no array
     }
     
 }
