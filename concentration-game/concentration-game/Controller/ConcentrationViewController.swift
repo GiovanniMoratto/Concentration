@@ -7,105 +7,175 @@
 
 import UIKit
 
-// representa o controller do game
+
 class ConcentrationViewController: UIViewController {
+    // Representa o controller do game
     
-    // MARK: - Variables
+    // MARK: - Attributes
     
-    // variável com conteúdo para os cards
 //    var emojiChoices: Array = ["🎃", "👻", "🦇", "😱", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
+    // Variável que armazena um array com todos os tipos de emoji no game.
+    
     var emojiChoices: String = "🎃👻🦇😱🤡💀👹👽🧙🏻‍♀️🧟‍♀️🍭🍬"
+    // Variável que armazena uma string com todos os tipos de emoji no game.
     
-    // variavel com emoji correspondente para cada card/botão
     private var emoji: Dictionary<Card,String> = [Card:String]()
+    // Variável que armazena um dicionário de card e emoji no game.
     
-    // variável com o valor de clicks
+    /*
+     Essa variável utiliza a função de chave e valor do dicionário para associar os emojis aos cards no game.
+     */
+    
     private(set) var flipCount: Int = 0 {
-        // verifica se o valor sofreu alteração e executa lógica
+        // Variável com o valor de clicks utilizados no game.
+        
+        /*
+         Inicializada com valor 0 e utiliza Computed Properties para sua alteração.
+         */
+        
         didSet {
+            // Property Observer - verifica se o valor sofreu alteração e executa lógica
+            
             updateFlipCountLabel()
         }
     }
     
     var numberOfPairsOfCards: Int {
+        // Variável que armazena o valor de pares de cards no game.
+        
+        /*
+         Utiliza Read-Only Computed Properties para gerar seu valor.
+         */
+        
         return (cardButtons.count + 1) / 2
+        
+        /*
+         Conta quantos elementos existem no array de cardButtons acrescentando 1 pois foi inicializado pelo valor 0. Depois divide por 2 para gerar pares.
+         */
     }
     
-    // Lazy permite usar a variável de instância "cardButtons" quando ele for requisitada através de uma inicialização
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+    // Variável com o objeto Concentration, passando o numberOfPairsOfCards na sua inicialização.
     
-    // variável com informação do tempo para remover os cards combinados
-    let secondsToKickOff = 0.5
+    /*
+     Lazy é uma propertie cujo valor inicial não é calculado até a primeira vez que é usada. Graças a isso é possivel usar a variável "numberOfPairsOfCards" apenas quando ela for requisitada através de uma inicialização
+     */
     
-    // variável com informação do tempo para remover os cards não combinados
+    let secondsToRemove = 0.5
+    // Constante com valor do tempo em segundos para remover os cards combinados
+    
     let secondsToFaceDown = 1.5
+    // Constante com valor do tempo em segundos para virar os cards não combinados
+    
+    let cardColorFaceUp: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    // Constante com valor da cor para o card faceUp = true
+    
+    let cardColorFaceDown: UIColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+    // Constante com valor da cor para o card faceUp = false
+    
+    let cardColorRemove: UIColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0)
+    // Constante com valor da cor para o card isMatched = true
+
     
     // MARK: - IBOutlet
     
-    // variável com array de cards conectados ao UI
     @IBOutlet private var cardButtons: [UIButton]!
+    // variável com array de cards conectados ao UI
     
-    // variável com texto da label que mostra quantos clicks foram feitos
+    
     @IBOutlet private weak var flipCountLabel: UILabel! {
         didSet {
             updateFlipCountLabel()
         }
     }
+    // variável com texto da label que mostra quantos clicks foram feitos
     
     // MARK: - IBAction
     
-    /// método para capturar ação de toque no card
+    /// Método para capturar ação de toque no card
     @IBAction private func touchCard(_ sender: UIButton) {
-        // acrescenta click no total de contagem
+
         flipCount += 1
-        // cria uma variavel e associa a um optional com o valor do index do array de cards correspondente ao clique
+        // Acrescenta click no total de contagem
+        
         guard let cardNumber: Int = cardButtons.firstIndex(of: sender) else {
-            // extrai do Optional com o guard let e o retorna o valor
-            // caso o card não esteja conectado à variável cardButtons, imprimi uma mensagem no console e retorna
+            // guard let - unwraps optionals
+            
+            /*
+             Preciso identificar o cardButton tocado para executar a lógica, para isso vou percorrer o array de cardButtons utilizando o método firstIndex, enviando como parâmetro o sender que representa o UIButton.
+             Como o firstIndex me retorna um Optional, usei o guard let para abstrair seu valor.
+             
+             Com o guard let, instancio uma constante e associo à um valor. Caso seja nil, o card não está conectado conectado à variável cardButtons. Depois irá imprimir uma mensagem no console e retornar.
+             */
+            
             print("Chosen card was not in the cardButtons Array.")
             return
         }
-        // diz a model qual cartão foi escolhido
+        
         game.chooseCard(at: cardNumber)
-        // atualiza a view
+        // Diz a model qual cartão foi escolhido e executa lógica de combinação e virada das cartas
+        
         updateViewFromModel()
+        // Atualiza a view para gerar efeitos visuais.
     }
     
-    // MARK: - Functions
+    // MARK: - Methods
     
     /// Mantém a visualização atualizada com base no estado do modelo
     private func updateViewFromModel() {
         
-        // loop percorrendo todos os card pelos indices
         for index in cardButtons.indices {
+            // laço percorrendo todos os card pelos indices
             
-            // variável com o cardButton do indice atual
             let button = cardButtons[index]
-            // variável com o card (model) do indice atual
-            let card = game.cards[index]
+            // constante com o cardButton do indice atual
             
-            // Se o card estiver virado para cima (isFaceUp = true)
+            let card = game.cards[index]
+            // constante com o card do indice atual
+            
             if card.isFaceUp {
-                // inseri emoji
-                button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                // defini a cor frontal do card
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                // Se o card estiver virado para cima (isFaceUp = true)
+                
+                button.setTitle(insertEmoji(for: card), for: UIControl.State.normal)
+                // Inseri emoji no cardButton
+                
+                button.backgroundColor = cardColorFaceUp
+                // Defini a cor frontal do cardButton
+                
                 if card.twoCardsFaceUp, !card.isMatched {
-                    timer(button: button, color: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1), time: secondsToFaceDown)
+                    
+                    /*
+                     Se o card está virado para cima com mais algum e não combinaram, executa lógica
+                     */
+                    
+                    timer(button: button, color: cardColorFaceDown, time: secondsToFaceDown)
+                    // Efeito de card virando para baixo
                 }
                 else if card.twoCardsFaceUp, card.isMatched {
-                    timer(button: button, color: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0), time: secondsToKickOff)
+                    
+                    /*
+                     Se o card está virado para cima com mais algum e eles combinaram, executa lógica
+                     */
+                    
+                    timer(button: button, color: cardColorRemove, time: secondsToRemove)
+                    // Efeito de retirar os cards
                 }
             } else {
-                // apaga emoji
+                // Se o card estiver virado para baixo (isFaceUp = false)
+                
                 button.setTitle("", for: UIControl.State.normal)
-                // defini a cor traseira do card
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+                // Apaga o emoji do card
+                
+                button.backgroundColor = card.isMatched ? cardColorRemove : cardColorFaceDown
+                // Defini a cor traseira do card
             }
         }
     }
     
-    /// temporizador de tela
+    /// Método para gerar um temporizador de tela
+    /// - Parameter button: UIButton que receberá o efeito
+    /// - Parameter color: Cor que será atribuida ao card
+    /// - Parameter time: Tempo que será atribuido ao efeito
     private func timer(button: UIButton, color: UIColor, time: Double) {
         Dispatch.DispatchQueue.main.asyncAfter(deadline: .now() + time) {
             button.setTitle("", for: UIControl.State.normal)
@@ -113,32 +183,48 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    /// retorna um emoji para o card fornecido
-    private func emoji(for card: Card) -> String {
-        // input validation
+    /// Método para retornar um emoji ao card fornecido
+    /// - Parameter card: Card que receberá um emoji e será associado.
+    private func insertEmoji(for card: Card) -> String {
+        
         assert(game.cards.contains(card), "ConcentrationViewController.emoji(at: \(card)): card was not in cards")
+        
+        /*
+         Validação de dados de entrada no método, apenas cards existentes no array de cards serão aceitos.
+         */
         
         // se o cartão não tiver um emoji definido, adicione um aleatório
         // a condicional precisa do "emojiChoices.count > 0" por conta do intervalo do arc4random_uniform
         if emoji[card] == nil, emojiChoices.count > 0 {
-            // remove o emoji do emojiChoices para que não seja selecionado novamente
-            //emoji[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            
+            /*
+             Se o Dicionário emoji com o indice "card" enviado no método, for igual a nil e a quantidade de emojis disponiveis em emojiChoices.count for maior que 0, executa lógica
+             */
+            
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            
+            /*
+             Instancia uma constante com um valor de index aleatório
+             */
+            
             emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
+            // remove o emoji do emojiChoices para que não seja selecionado novamente
         }
         
-        // retorna o emoji ou "?" se nenhum disponível
         return emoji[card] ?? "?"
+        // retorna o emoji ou "?" se nenhum disponível
     }
     
     private func updateFlipCountLabel() {
+        
         let attributes: [NSAttributedString.Key:Any] = [
             .strokeWidth : 5.0,
             .strokeColor : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
         ]
+        
         let attributesString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
-        // altera o texto da label atualizando contagem
         flipCountLabel.attributedText = attributesString
+        // altera o texto da label atualizando contagem
     }
     
 }

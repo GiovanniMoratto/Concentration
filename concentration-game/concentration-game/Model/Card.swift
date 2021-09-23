@@ -7,40 +7,61 @@
 
 import Foundation
 
-// representa o card usado no game (Struct = value type)
 struct Card: Hashable {
+    // Representa a model de um card no game
     
-    // MARK: - Variables
+    // MARK: - Attributes
     
-    // variável com informação de que se o card atual está ou não virado para cima. Inicializada como falsa. Sua alteração gera efeito visual de virada no card.
     var isFaceUp: Bool = false
+    // Variável com informação de virado ou não para cima.
     
-    // variável com informação de que o se card atual já combinou com outro card. Inicializada como falsa
+    /*
+     Inicializada com valor de falso. É responsável pelo efeito visual de virar o card no game.
+     */
+    
     var isMatched: Bool = false
+    // Variável com informação de combinado ou não com outro card.
     
-    //variável com informação de se o card atual será removi
+    /*
+     Inicializada com valor de falso. É responsável pelo efeito visual de retirar o card.
+     */
+    
     var twoCardsFaceUp: Bool = false
+    // Variável com informação de que existem ou não dois cards virados para cima no game.
     
-    // variável com um identificador exclusivo para o cartão. (o par de cards correspondentes tem o mesmo identificador)
+    /*
+     Inicializada com valor de falso. É responsável pelo efeito visual de temporizador na visualização dos cards.
+     */
+    
     private var identifier: Int
+    // Variável com um valor de Int que representa um identificador no game.
     
-    // MARK: - Static Variables
+    /*
+     Cada par de card terá um identificador único.
+     */
     
-    // identificador estático que é aumentado toda vez que um novo é solicitado por getUniqueIdentifier(). Inicializada como zero
+    // MARK: - Static Attributes
+    
     private static var identifierFactory: Int = 0
-
-    // MARK: - Static Functions
+    // Variável com um valor de Int que representa um identificador no game.
     
-    /// método para retornar um id único usado como um identificador de cartão
+    /*
+     Inicializada com valor 0. É responsável por criar os identificadores, aumentando seu valor a cada chamada do método getUniqueIdentifier().
+     */
+    
+    // MARK: - Static Methods
+    
+    /// Método para retornar um ID usado como um identificador de cartão
     private static func getUniqueIdentifier() -> Int {
         
         identifierFactory += 1
         return identifierFactory
     }
     
-    // var hashValue: Int { return identifier } - Deprecated
-    /// hashValue
+    /// Método hashValue
     func hash(into hasher: inout Hasher) {
+        // var hashValue: Int { return identifier } - Deprecated
+        
             hasher.combine(identifier)
             hasher.combine(identifier)
         }
@@ -52,11 +73,14 @@ struct Card: Hashable {
     
     // MARK: - Initializers (Constructors)
     
-    /// cria um cartão com o identificador fornecido. Ao instânciar o objeto passa a ser obrigatório declarar um valor ao(s) parâmetro(s) citados nos parênteses acima
     init() {
         
-        // self == this no java
+        /*
+         Cria um card com o ID gerado. Sempre que instanciar um card, o atributo identifier será atualizado para um novo valor.
+         */
+        
         self.identifier = Card.getUniqueIdentifier()
+        // self == this no java
     }
     
 }

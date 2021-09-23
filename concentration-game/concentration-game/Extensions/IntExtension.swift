@@ -11,6 +11,7 @@ extension Int {
     // índice aleatório entre 0 e número de opções de emoji -1
     // arc4random_uniform recebe um tipo UInt32
     // precisa ser um Int
+    
     var arc4random: Int {
         if self > 0 {
             return Int(arc4random_uniform(UInt32(self)))
