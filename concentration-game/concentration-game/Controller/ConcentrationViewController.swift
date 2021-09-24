@@ -84,11 +84,18 @@ class ConcentrationViewController: UIViewController {
     
     
     @IBOutlet private weak var flipCountLabel: UILabel! {
+        // variável com texto da label que mostra quantos clicks foram feitos
+        
+        /*
+         weak indica que é uma variável de referência fraca, o que significa que é apenas um ponteiro para um objeto que não o proteje de ser desalocado pelo ARC.
+         Por ser fraca e poder ser nula, week é sempre declarada como Optional e precisa ser unwrap para acessar seu valor.
+         */
+        
         didSet {
+            // Property Observer - verifica se o valor sofreu alteração e executa lógica
             updateFlipCountLabel()
         }
     }
-    // variável com texto da label que mostra quantos clicks foram feitos
     
     // MARK: - IBAction
     
@@ -215,6 +222,7 @@ class ConcentrationViewController: UIViewController {
         // retorna o emoji ou "?" se nenhum disponível
     }
     
+    /// Método para retornar atualizar a contagem de clicks na Label
     private func updateFlipCountLabel() {
         
         let attributes: [NSAttributedString.Key:Any] = [
