@@ -33,6 +33,13 @@ struct Card: Hashable {
      Inicializada com valor de falso. É responsável pelo efeito visual de temporizador na visualização dos cards.
      */
     
+    var flipCount = 0
+    // Variável que armazena o número de vezes que uma carta foi clicada
+    
+    /*
+     Inicializada com 0. É responsável por gerar informação para o sistema de pontuação.
+     */
+    
     private var identifier: Int
     // Variável com um valor de Int que representa um identificador no game.
     

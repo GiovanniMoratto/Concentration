@@ -67,6 +67,12 @@ struct Concentration {
         }
     }
     
+    private(set) var matches = 0
+    // Variável que armazena o número de cartas combinadas encontradas na partida.
+    
+    private(set) var score = 0
+    // Pontuação no game
+    
     // MARK: - Methods
     
     /// Método para desencadear lógica de operações após a escolha do card.
@@ -115,6 +121,26 @@ struct Concentration {
                     
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    
+                    matches += 1
+                    score += 2
+                    
+                    /*
+                     Como combinaram incrementa 1 na variavél de combinações e adciona 2 pontos na partida
+                     */
+                    
+                } else if cards[index].flipCount > 0 || cards[matchIndex].flipCount > 0 {
+                    // Se não combinaram e uma das cartas já foi clicada
+                    
+                    score -= 1
+                    
+                    /*
+                     Diminui em 1 ponto e limita pontuação minima como 0
+                     */
+                    
+                    if score < 0 {
+                        score = 0
+                    }
                 }
                 
                 cards[index].isFaceUp = true
@@ -127,6 +153,9 @@ struct Concentration {
                 cards[matchIndex].twoCardsFaceUp = true
                 cards[index].twoCardsFaceUp = true
                 // Altero o valor dos atributos twoCardsFaceUp para true.
+                
+                cards[index].flipCount += 1
+                cards[matchIndex].flipCount += 1
 
             }
             

@@ -26,20 +26,6 @@ class ConcentrationViewController: UIViewController {
      Essa variável utiliza a função de chave e valor do dicionário para associar os emojis aos cards no game.
      */
     
-    private(set) var flipCount: Int = 0 {
-        // Variável com o valor de clicks utilizados no game.
-        
-        /*
-         Inicializada com valor 0 e utiliza Computed Properties para sua alteração.
-         */
-        
-        didSet {
-            // Property Observer - verifica se o valor sofreu alteração e executa lógica
-            
-            updateFlipCountLabel()
-        }
-    }
-    
     var numberOfPairsOfCards: Int {
         // Variável que armazena o valor de pares de cards no game.
         
@@ -79,32 +65,20 @@ class ConcentrationViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private var cardButtons: [UIButton]!
+    @IBOutlet private(set) var cardButtons: [UIButton]!
     // variável com array de cards conectados ao UI
+
+    @IBOutlet private weak var matchLabel: UILabel!
+    // variável com texto de combinações conectado ao UI
     
-    
-    @IBOutlet private weak var flipCountLabel: UILabel! {
-        // variável com texto da label que mostra quantos clicks foram feitos
-        
-        /*
-         weak indica que é uma variável de referência fraca, o que significa que é apenas um ponteiro para um objeto que não o proteje de ser desalocado pelo ARC.
-         Por ser fraca e poder ser nula, week é sempre declarada como Optional e precisa ser unwrap para acessar seu valor.
-         */
-        
-        didSet {
-            // Property Observer - verifica se o valor sofreu alteração e executa lógica
-            updateFlipCountLabel()
-        }
-    }
+    @IBOutlet private weak var scoreLabel: UILabel!
+    // variável com texto de pontuação conectad ao UI
     
     // MARK: - IBAction
     
     /// Método para capturar ação de toque no card
     @IBAction private func touchCard(_ sender: UIButton) {
 
-        flipCount += 1
-        // Acrescenta click no total de contagem
-        
         guard let cardNumber: Int = cardButtons.firstIndex(of: sender) else {
             // guard let - unwraps optionals
             
@@ -124,6 +98,13 @@ class ConcentrationViewController: UIViewController {
         
         updateViewFromModel()
         // Atualiza a view para gerar efeitos visuais.
+        
+        matchLabel.text = "Matches: \(game.matches)"
+        // Atualiza valor na label de matches
+        
+        scoreLabel.text = "SCORE: \(game.score)"
+        // Atualiza valor na label de score
+        
     }
     
     // MARK: - Methods
@@ -220,19 +201,6 @@ class ConcentrationViewController: UIViewController {
         
         return emoji[card] ?? "?"
         // retorna o emoji ou "?" se nenhum disponível
-    }
-    
-    /// Método para retornar atualizar a contagem de clicks na Label
-    private func updateFlipCountLabel() {
-        
-        let attributes: [NSAttributedString.Key:Any] = [
-            .strokeWidth : 5.0,
-            .strokeColor : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-        ]
-        
-        let attributesString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
-        flipCountLabel.attributedText = attributesString
-        // altera o texto da label atualizando contagem
     }
     
 }
