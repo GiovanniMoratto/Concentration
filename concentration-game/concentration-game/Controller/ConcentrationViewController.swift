@@ -13,20 +13,15 @@ class ConcentrationViewController: UIViewController {
     
     // MARK: - Attributes
     
-//    var emojiChoices: Array = ["🎃", "👻", "🦇", "😱", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
-
-    
-    var emojiChoices: String = "🎃👻🦇😱🤡💀👹👽🧙🏻‍♀️🧟‍♀️🍭🍬"
-
+    var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
     
     private var emoji: Dictionary<Card,String> = [Card:String]()
-    // Variável que armazena um dicionário de card e emoji no game.
     
-    /*
-     Essa variável utiliza a função de chave e valor do dicionário para associar os emojis aos cards no game.
-     */
+    private var themeBackgroundColor: UIColor?
     
-    var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
+    private var themeCardColor: UIColor?
+    
+    private var themeCardTitles: [String]?
     
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     // Variável com o objeto Concentration, passando o numberOfPairsOfCards na sua inicialização.
@@ -35,8 +30,9 @@ class ConcentrationViewController: UIViewController {
      Lazy é uma propertie cujo valor inicial não é calculado até a primeira vez que é usada. Graças a isso é possivel usar a variável "numberOfPairsOfCards" apenas quando ela for requisitada através de uma inicialização
      */
     
-    let cardColorFaceDown: UIColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-    // Constante com valor da cor para o card faceUp = false
+    private let halloweenTheme  = Theme.init(backgroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1), cardTitles: ["🎃", "👻", "🦇", "🧛‍♂️", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"])
+    private let foodTheme       = Theme.init(backgroundColor: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), cardColor: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), cardTitles: ["🍕", "🥙", "🍔", "🍟", "🍫", "🌭", "🍖", "🌯", "🍗", "🍝", "🍱", "🍜"])
+    private let animalsTheme    = Theme.init(backgroundColor: #colorLiteral(red: 0.0703080667, green: 0.4238856008, blue: 0.02163499179, alpha: 1), cardColor: #colorLiteral(red: 0.4453506704, green: 0.1640041592, blue: 0.002700540119, alpha: 1), cardTitles: ["🐅", "🐆", "🦓", "🦍", "🐘", "🦛", "🦏", "🦒", "🦘", "🦫", "🐿", "🦩"])
 
     // MARK: - IBOutlet
     
@@ -49,6 +45,14 @@ class ConcentrationViewController: UIViewController {
     @IBOutlet private weak var timeBonusLabel: UILabel!
 
     @IBOutlet private weak var restartButton: UIButton!
+    
+    @IBOutlet private weak var topContainer: UIView!
+    
+    @IBOutlet private weak var matchContainer: UIView!
+    
+    @IBOutlet private weak var cardsContainer: UIView!
+    
+    @IBOutlet private weak var bottomContainer: UIView!
     
     // MARK: - IBAction
     
@@ -78,6 +82,21 @@ class ConcentrationViewController: UIViewController {
         updateLabelsView()
         // Atualiza a view das labels para gerar efeitos visuais.
         
+        if game.matches == numberOfPairsOfCards {
+            restartButton.isHidden = false
+        }
+    }
+    
+    @IBAction private func restartButtonPressed(_ sender: UIButton) {
+        restartButton.isHidden = false
+        game.resetCards()
+        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        emoji.removeAll()
+        settingTheme()
+        updateCardsView()
+        updateLabelsView()
+        scoreLabel.text = "Score: \(game.score)"
+        matchLabel.text = "Matches: \(game.matches)"
     }
     
     // MARK: - Methods
@@ -111,7 +130,7 @@ class ConcentrationViewController: UIViewController {
                 // Se o card estiver virado para baixo (isFaceUp = false)
                 
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0) : cardColorFaceDown
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0) : themeCardColor
                 
             }
         }
@@ -144,7 +163,7 @@ class ConcentrationViewController: UIViewController {
         Dispatch.DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 + 0.5) {
             UIView.animate(withDuration: 1.0, animations: {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = self.cardColorFaceDown
+                button.backgroundColor = self.themeCardColor
             })}
     }
     
@@ -154,16 +173,37 @@ class ConcentrationViewController: UIViewController {
         
         assert(game.cards.contains(card), "ConcentrationViewController.emoji(at: \(card)): card was not in cards")
         
-        if emoji[card] == nil, emojiChoices.count > 0 {
-            
-            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
-            
-            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
-
+        if emoji[card] == nil && themeCardTitles != nil {
+            emoji[card] = themeCardTitles!.remove(at: themeCardTitles!.count.arc4random)
         }
         
         return emoji[card] ?? "?"
 
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        settingTheme()
+        updateCardsView()
+        updateLabelsView()
+        restartButton.isHidden = false
+    }
+    
+    private func settingTheme() {
+        let themes = [halloweenTheme, foodTheme, animalsTheme]
+        let randomTheme = themes.count.arc4random
+        themeBackgroundColor = themes[randomTheme].backgroundColor
+        themeCardColor = themes[randomTheme].cardColor
+        themeCardTitles = themes[randomTheme].cardTitles
+        view.backgroundColor = themeBackgroundColor
+        topContainer.backgroundColor = themeBackgroundColor
+        matchContainer.backgroundColor = themeBackgroundColor
+        cardsContainer.backgroundColor = themeBackgroundColor
+        bottomContainer.backgroundColor = themeBackgroundColor
+        scoreLabel.textColor = themeCardColor
+        matchLabel.textColor = themeCardColor
+        restartButton.tintColor = themeCardColor
+        timeBonusLabel.textColor = themeCardColor
     }
     
 }

@@ -21,39 +21,40 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gql-KO-GY1" userLabel="Top Container">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="AzG-Jq-uQZ">
-                                        <rect key="frame" x="30" y="16" width="354" height="48"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="QYw-8t-10t">
+                                        <rect key="frame" x="39" y="16" width="336" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-uf-Evb" userLabel="Return Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="159.5" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" title="Return">
-                                                    <color key="titleShadowColor" red="1" green="0.9882452061" blue="0.95552159240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aj-t8-nPh" userLabel="Restart Button">
-                                                <rect key="frame" x="194.5" y="0.0" width="159.5" height="48"/>
+                                                <rect key="frame" x="243" y="0.0" width="93" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" title="Restart">
-                                                    <color key="titleShadowColor" red="1" green="0.9882452061" blue="0.95552159240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="restartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bt7-XI-dQN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="AzG-Jq-uQZ" firstAttribute="centerY" secondItem="gql-KO-GY1" secondAttribute="centerY" id="M7Y-vu-tWv"/>
-                                    <constraint firstItem="AzG-Jq-uQZ" firstAttribute="leading" secondItem="gql-KO-GY1" secondAttribute="leading" constant="30" id="YFs-33-0po"/>
-                                    <constraint firstItem="AzG-Jq-uQZ" firstAttribute="centerX" secondItem="gql-KO-GY1" secondAttribute="centerX" id="hgR-5o-cl0"/>
-                                    <constraint firstAttribute="trailing" secondItem="AzG-Jq-uQZ" secondAttribute="trailing" constant="30" id="jIm-vm-6Bd"/>
-                                    <constraint firstAttribute="height" constant="80" id="wli-MO-hh9"/>
+                                    <constraint firstItem="QYw-8t-10t" firstAttribute="centerY" secondItem="gql-KO-GY1" secondAttribute="centerY" id="Hco-tn-72y"/>
+                                    <constraint firstAttribute="height" constant="80" id="Qxh-fH-smk"/>
+                                    <constraint firstItem="QYw-8t-10t" firstAttribute="centerX" secondItem="gql-KO-GY1" secondAttribute="centerX" id="uhj-oD-i33"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sz1-Ax-Cp7" userLabel="Match Container">
@@ -387,10 +388,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomContainer" destination="bdX-Qn-379" id="sJB-eT-d9m"/>
+                        <outlet property="cardsContainer" destination="In7-JH-NNd" id="LpO-05-Md5"/>
+                        <outlet property="matchContainer" destination="Sz1-Ax-Cp7" id="mwP-Jb-SzK"/>
                         <outlet property="matchLabel" destination="Wtw-mV-uHh" id="rdX-3z-F8D"/>
                         <outlet property="restartButton" destination="0aj-t8-nPh" id="RFu-P6-Oh9"/>
                         <outlet property="scoreLabel" destination="yM1-km-wvy" id="e05-gu-2fL"/>
                         <outlet property="timeBonusLabel" destination="iaU-79-4ak" id="7st-mj-9vt"/>
+                        <outlet property="topContainer" destination="gql-KO-GY1" id="6Zz-FZ-bm6"/>
                         <outletCollection property="cardButtons" destination="DiD-XZ-3W4" collectionClass="NSMutableArray" id="jlg-3k-jAk"/>
                         <outletCollection property="cardButtons" destination="fJE-7i-U6E" collectionClass="NSMutableArray" id="dsB-j0-aLc"/>
                         <outletCollection property="cardButtons" destination="HWw-6m-tBu" collectionClass="NSMutableArray" id="Ajr-os-aar"/>

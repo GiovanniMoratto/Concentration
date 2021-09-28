@@ -223,6 +223,10 @@ struct Concentration {
         bonus = ""
     }
     
+    mutating func resetCards() {
+        cards.removeAll()
+    }
+    
     // MARK: - Initializers (Constructors)
     
     init(numberOfPairsOfCards: Int) {
