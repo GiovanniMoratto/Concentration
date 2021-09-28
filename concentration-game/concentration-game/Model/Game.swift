@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Concentration {
+struct Game {
     // Representa a model do game.
     
     // MARK: - Attributes
@@ -72,6 +72,7 @@ struct Concentration {
     private(set) var bonus = ""
     private var startTime: Date?
     private var elapsedTime: TimeInterval?
+    private(set) var restartButtonView: Bool = true
     
     // MARK: - Methods
     
@@ -209,6 +210,12 @@ struct Concentration {
             startTime = Date()
         } else {
             elapsedTime = nil
+        }
+        
+        let numberOfCardsNotMatched = cards.indices.filter { !cards[$0].isMatched }.count
+        
+        if numberOfCardsNotMatched <= 2 {
+            restartButtonView = false
         }
         
     }
