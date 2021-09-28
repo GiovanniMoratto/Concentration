@@ -13,32 +13,9 @@ struct Card: Hashable {
     // MARK: - Attributes
     
     var isFaceUp: Bool = false
-    // Variável com informação de virado ou não para cima.
-    
-    /*
-     Inicializada com valor de falso. É responsável pelo efeito visual de virar o card no game.
-     */
-    
     var isMatched: Bool = false
-    // Variável com informação de combinado ou não com outro card.
-    
-    /*
-     Inicializada com valor de falso. É responsável pelo efeito visual de retirar o card.
-     */
-    
     var twoCardsFaceUp: Bool = false
-    // Variável com informação de que existem ou não dois cards virados para cima no game.
-    
-    /*
-     Inicializada com valor de falso. É responsável pelo efeito visual de temporizador na visualização dos cards.
-     */
-    
     var flipCount = 0
-    // Variável que armazena o número de vezes que uma carta foi clicada
-    
-    /*
-     Inicializada com 0. É responsável por gerar informação para o sistema de pontuação.
-     */
     
     private var identifier: Int
     // Variável com um valor de Int que representa um identificador no game.

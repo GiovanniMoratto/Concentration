@@ -14,10 +14,6 @@ struct Concentration {
     
     private(set) var cards: Array<Card> = [Card]()
     // Variável que armazena um array com todos os cards do game.
-     
-    /*
-     O controle de acesso (private(set)) indica que a variavel pode ser lida mas não pode ser modificado externamente.
-     */
     
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         // Variável com informação se há ou não apenas 1 card virado para cima.
@@ -73,6 +69,10 @@ struct Concentration {
     private(set) var score = 0
     // Pontuação no game
     
+    private(set) var bonus = ""
+    private var startTime: Date?
+    private var elapsedTime: TimeInterval?
+    
     // MARK: - Methods
     
     /// Método para desencadear lógica de operações após a escolha do card.
@@ -111,6 +111,9 @@ struct Concentration {
                  2. Não Combinar
                  */
                 
+                stoppTime()
+                // encerra contagem do tempo
+                
                 if cards[matchIndex] == cards[index] {
                     
                     /*
@@ -129,8 +132,29 @@ struct Concentration {
                      Como combinaram incrementa 1 na variavél de combinações e adciona 2 pontos na partida
                      */
                     
+                    if let elapsedTimeUnwrapped = elapsedTime {
+                        // unwraps elapsedTime optional
+
+                        if elapsedTimeUnwrapped < 0.75 {
+                            bonus = "Time Bonus: +2"
+                            score += 2
+                        } else if elapsedTimeUnwrapped < 1.0 {
+                            bonus = "Time Bonus: +1"
+                            score += 1
+                        }
+                    }
+                    
                 } else if cards[index].flipCount > 0 || cards[matchIndex].flipCount > 0 {
                     // Se não combinaram e uma das cartas já foi clicada
+                    
+                    if let elapsedTimeUnwrapped = elapsedTime {
+                        // unwraps elapsedTime optional
+                        
+                        if elapsedTimeUnwrapped > 2.25 {
+                            bonus = "Time Deduction: -2"
+                            score -= 2
+                        }
+                    }
                     
                     score -= 1
                     
@@ -174,8 +198,29 @@ struct Concentration {
                 
                 cards[index].twoCardsFaceUp = false
                 // atribui informação de que não existem dois cards virados para cima.
+                
             }
         }
+        
+        let numberOfFaceUpCards = cards.indices.filter { cards[$0].isFaceUp }.count
+        // constante com número de cards virados para cima
+        
+        if numberOfFaceUpCards == 1 {
+            startTime = Date()
+        } else {
+            elapsedTime = nil
+        }
+        
+    }
+    
+    private mutating func stoppTime() {
+        if let start = startTime {
+            elapsedTime = Date().timeIntervalSince(start)
+        }
+    }
+    
+    mutating func resetTimeBonus() {
+        bonus = ""
     }
     
     // MARK: - Initializers (Constructors)
