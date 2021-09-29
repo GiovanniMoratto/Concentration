@@ -49,21 +49,14 @@ class ThemeController: UIViewController {
     
     // MARK: - Methods
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let identifier = segue.identifier else {
-            return
-        }
+        guard let identifier = segue.identifier else { return }
         
         switch identifier {
-            
         case "Choose Theme":
-           
             if let concentrationVC = segue.destination as? GameController {
-                
                 if let themeName = (sender as? UIButton)?.currentTitle {
-                    
                     if let theme = themes[themeName] {
                         concentrationVC.theme = theme
                     }
@@ -73,5 +66,4 @@ class ThemeController: UIViewController {
             break
         }
     }
-    
 }

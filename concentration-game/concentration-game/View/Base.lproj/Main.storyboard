@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3aP-NB-jbT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -19,21 +19,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WyD-8O-AtH">
-                                <rect key="frame" x="105.5" y="274" width="203.5" height="308"/>
+                                <rect key="frame" x="110" y="301" width="194.5" height="298"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Themes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8d-g3-dBZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="203.5" height="62"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="194.5" height="59.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" red="1" green="0.97620303509999995" blue="0.89766327000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPG-aw-d87">
-                                        <rect key="frame" x="0.0" y="82" width="203.5" height="62"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="79.5" width="194.5" height="59.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.96583181619644165" green="0.42153221368789673" blue="0.20066383481025696" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Halloween">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -41,12 +41,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gj-DV-WXa">
-                                        <rect key="frame" x="0.0" y="164" width="203.5" height="62"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="159" width="194.5" height="59.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.96583181619644165" green="0.42153221368789673" blue="0.20066383481025696" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Food">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -54,12 +54,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTr-2W-nRC">
-                                        <rect key="frame" x="0.0" y="246" width="203.5" height="62"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="238.5" width="194.5" height="59.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.96583181619644165" green="0.42153221368789673" blue="0.20066383481025696" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Animals">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="38"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -68,16 +68,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concentration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqS-jm-sO9">
+                                <rect key="frame" x="58" y="186" width="298.5" height="54.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="50"/>
+                                <color key="textColor" red="0.96349138021469116" green="0.34471935033798218" blue="0.18497923016548157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HKn-ny-iIV"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WyD-8O-AtH" firstAttribute="centerX" secondItem="HKn-ny-iIV" secondAttribute="centerX" id="DzN-nx-0Oz"/>
+                            <constraint firstItem="P8d-g3-dBZ" firstAttribute="firstBaseline" secondItem="yqS-jm-sO9" secondAttribute="baseline" constant="100" id="Hqt-ux-g8R"/>
                             <constraint firstItem="WyD-8O-AtH" firstAttribute="centerY" secondItem="HKn-ny-iIV" secondAttribute="centerY" constant="-25" id="HxM-p7-uBJ"/>
+                            <constraint firstItem="yqS-jm-sO9" firstAttribute="centerX" secondItem="HKn-ny-iIV" secondAttribute="centerX" id="xjP-H7-YgU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="s2n-xg-2dw"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" id="DsO-gN-pM5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Choose Theme" id="DsO-gN-pM5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsP-lv-dtL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -89,77 +98,40 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GameController" customModule="concentration_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gql-KO-GY1" userLabel="Top Container">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sz1-Ax-Cp7" userLabel="Top Container">
+                                <rect key="frame" x="0.0" y="210" width="414" height="50"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="AzG-Jq-uQZ">
-                                        <rect key="frame" x="30" y="16" width="354" height="48"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-uf-Evb" userLabel="Return Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="159.5" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Return">
-                                                    <color key="titleShadowColor" red="1" green="0.9882452061" blue="0.95552159240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aj-t8-nPh" userLabel="Restart Button">
-                                                <rect key="frame" x="194.5" y="0.0" width="159.5" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Restart">
-                                                    <color key="titleShadowColor" red="1" green="0.9882452061" blue="0.95552159240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="AzG-Jq-uQZ" firstAttribute="centerY" secondItem="gql-KO-GY1" secondAttribute="centerY" id="M7Y-vu-tWv"/>
-                                    <constraint firstItem="AzG-Jq-uQZ" firstAttribute="leading" secondItem="gql-KO-GY1" secondAttribute="leading" constant="30" id="YFs-33-0po"/>
-                                    <constraint firstItem="AzG-Jq-uQZ" firstAttribute="centerX" secondItem="gql-KO-GY1" secondAttribute="centerX" id="hgR-5o-cl0"/>
-                                    <constraint firstAttribute="trailing" secondItem="AzG-Jq-uQZ" secondAttribute="trailing" constant="30" id="jIm-vm-6Bd"/>
-                                    <constraint firstAttribute="height" constant="80" id="wli-MO-hh9"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sz1-Ax-Cp7" userLabel="Match Container">
-                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matches: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtw-mV-uHh" userLabel="Match Label">
-                                        <rect key="frame" x="129.5" y="35" width="155.5" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matches: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtw-mV-uHh" userLabel="Match Label">
+                                        <rect key="frame" x="8" y="10" width="130.5" height="30"/>
                                         <color key="tintColor" red="1" green="0.9882452061" blue="0.95552159240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Q6M-80-Xea"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" systemColor="systemOrangeColor"/>
                                         <color key="highlightedColor" systemColor="systemOrangeColor"/>
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1Ue-W2-e0J"/>
-                                    <constraint firstItem="Wtw-mV-uHh" firstAttribute="centerY" secondItem="Sz1-Ax-Cp7" secondAttribute="centerY" id="1sk-h8-cgn"/>
-                                    <constraint firstItem="Wtw-mV-uHh" firstAttribute="centerX" secondItem="Sz1-Ax-Cp7" secondAttribute="centerX" id="O96-EO-rxh"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wtw-mV-uHh" secondAttribute="trailing" constant="20" symbolic="YES" id="keZ-rF-fHZ"/>
+                                    <constraint firstItem="Wtw-mV-uHh" firstAttribute="leading" secondItem="Sz1-Ax-Cp7" secondAttribute="leading" constant="8" id="oaX-VM-0HP"/>
+                                    <constraint firstItem="Wtw-mV-uHh" firstAttribute="centerY" secondItem="Sz1-Ax-Cp7" secondAttribute="centerY" id="quV-XS-LI2"/>
+                                    <constraint firstAttribute="height" constant="50" id="qxp-A0-cGh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="In7-JH-NNd" userLabel="Cards Container">
-                                <rect key="frame" x="0.0" y="180" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="268" width="414" height="414"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Akc-52-7xi">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Akc-52-7xi" userLabel="Stack View Vertical - All Cards">
                                         <rect key="frame" x="8" y="8" width="398" height="398"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uth-89-ytM">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uth-89-ytM" userLabel="Stack View Horizontal - 1 Row">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="93.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiD-XZ-3W4">
@@ -167,9 +139,16 @@
                                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <size key="titleShadowOffset" width="2" height="2"/>
                                                         <state key="normal" title="">
                                                             <attributedString key="attributedTitle"/>
+                                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CoM-jJ-by2"/>
                                                         </connections>
@@ -185,6 +164,11 @@
                                                         <state key="normal" title="">
                                                             <attributedString key="attributedTitle"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wh0-L6-yBf"/>
                                                         </connections>
@@ -200,6 +184,11 @@
                                                         <state key="normal" title="">
                                                             <attributedString key="attributedTitle"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7z-fJ-yhV"/>
                                                         </connections>
@@ -212,6 +201,11 @@
                                                         <state key="normal" title="">
                                                             <attributedString key="attributedTitle"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DBD-iH-PIP"/>
                                                         </connections>
@@ -222,7 +216,7 @@
                                                     <constraint firstItem="DiD-XZ-3W4" firstAttribute="width" secondItem="DiD-XZ-3W4" secondAttribute="height" multiplier="1:1" id="lkb-h9-SHc"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pbg-HT-BBC">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pbg-HT-BBC" userLabel="Stack View Horizontal - 2 Row">
                                                 <rect key="frame" x="0.0" y="101.5" width="398" height="93.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVF-5h-F3d">
@@ -231,6 +225,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aEl-fO-zSH"/>
                                                         </connections>
@@ -244,6 +243,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Js-hc-zAA"/>
                                                         </connections>
@@ -257,6 +261,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H5b-HC-JQc"/>
                                                         </connections>
@@ -267,6 +276,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubk-z8-b7u"/>
                                                         </connections>
@@ -277,7 +291,7 @@
                                                     <constraint firstItem="uVF-5h-F3d" firstAttribute="width" secondItem="uVF-5h-F3d" secondAttribute="height" multiplier="1:1" id="Hev-oX-tbG"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UxL-q9-b0z">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UxL-q9-b0z" userLabel="Stack View Horizontal - 3 Row">
                                                 <rect key="frame" x="0.0" y="203" width="398" height="93.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w50-vO-7Kl">
@@ -285,6 +299,11 @@
                                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ms9-CI-qvp"/>
                                                         </connections>
@@ -297,6 +316,11 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0c-8l-NWZ"/>
                                                         </connections>
@@ -310,6 +334,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I64-NT-2TO"/>
                                                         </connections>
@@ -320,6 +349,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kNz-vo-dLk"/>
                                                         </connections>
@@ -330,7 +364,7 @@
                                                     <constraint firstItem="PFd-pv-TAl" firstAttribute="width" secondItem="PFd-pv-TAl" secondAttribute="height" multiplier="1:1" id="qCM-cx-qAe"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="djV-on-3pJ">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="djV-on-3pJ" userLabel="Stack View Horizontal - 4 Row">
                                                 <rect key="frame" x="0.0" y="304.5" width="398" height="93.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFK-Ge-Cue">
@@ -339,6 +373,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKU-h0-CgQ"/>
                                                         </connections>
@@ -352,6 +391,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ndT-QV-1a9"/>
                                                         </connections>
@@ -365,6 +409,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yzy-4s-Jlh"/>
                                                         </connections>
@@ -375,6 +424,11 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title=""/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5y-Aa-fMP"/>
                                                         </connections>
@@ -388,9 +442,8 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Uth-89-ytM" firstAttribute="top" secondItem="In7-JH-NNd" secondAttribute="top" constant="8" id="56I-cY-No7"/>
                                     <constraint firstAttribute="trailing" secondItem="Akc-52-7xi" secondAttribute="trailing" constant="8" id="9De-qb-0JU"/>
                                     <constraint firstItem="Akc-52-7xi" firstAttribute="leading" secondItem="In7-JH-NNd" secondAttribute="leading" constant="8" id="H6D-Hz-r5p"/>
                                     <constraint firstAttribute="bottom" secondItem="Akc-52-7xi" secondAttribute="bottom" constant="8" id="eNb-Bj-1ab"/>
@@ -399,9 +452,9 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdX-Qn-379" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="602" width="414" height="125"/>
+                                <rect key="frame" x="0.0" y="737" width="414" height="125"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nVD-IY-6nd">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nVD-IY-6nd" userLabel="Stack View Vertical">
                                         <rect key="frame" x="123.5" y="12.5" width="167" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-79-4ak" userLabel="Time Bonus">
@@ -425,16 +478,13 @@
                                                 <size key="shadowOffset" width="2" height="2"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="lNs-Gq-DS6"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="nVD-IY-6nd" firstAttribute="centerY" secondItem="bdX-Qn-379" secondAttribute="centerY" id="J01-lg-bcL"/>
-                                    <constraint firstAttribute="height" constant="125" id="LZS-P2-d5L"/>
-                                    <constraint firstItem="nVD-IY-6nd" firstAttribute="centerX" secondItem="bdX-Qn-379" secondAttribute="centerX" id="SGb-JM-6F3"/>
+                                    <constraint firstAttribute="height" constant="125" id="UK1-2a-eNm"/>
+                                    <constraint firstItem="nVD-IY-6nd" firstAttribute="centerX" secondItem="bdX-Qn-379" secondAttribute="centerX" id="fh2-d1-I8x"/>
+                                    <constraint firstItem="nVD-IY-6nd" firstAttribute="centerY" secondItem="bdX-Qn-379" secondAttribute="centerY" id="pT1-IS-oob"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -443,26 +493,34 @@
                         <constraints>
                             <constraint firstItem="In7-JH-NNd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1fg-MT-EtM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="In7-JH-NNd" secondAttribute="trailing" id="CLn-j5-eff"/>
-                            <constraint firstItem="gql-KO-GY1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CVs-51-tCL"/>
-                            <constraint firstItem="Sz1-Ax-Cp7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EMj-64-gtD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bdX-Qn-379" secondAttribute="trailing" id="F1U-bi-9qA"/>
-                            <constraint firstItem="gql-KO-GY1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NH9-bM-fwD"/>
-                            <constraint firstItem="bdX-Qn-379" firstAttribute="firstBaseline" secondItem="In7-JH-NNd" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="TtG-WE-jyc"/>
-                            <constraint firstItem="bdX-Qn-379" firstAttribute="centerX" secondItem="In7-JH-NNd" secondAttribute="centerX" id="W8g-aC-lfO"/>
-                            <constraint firstItem="Sz1-Ax-Cp7" firstAttribute="firstBaseline" secondItem="gql-KO-GY1" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="boj-lb-N9v"/>
-                            <constraint firstItem="In7-JH-NNd" firstAttribute="centerX" secondItem="gql-KO-GY1" secondAttribute="centerX" id="c55-Sx-GnJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gql-KO-GY1" secondAttribute="trailing" id="cIK-XQ-hCa"/>
-                            <constraint firstItem="Sz1-Ax-Cp7" firstAttribute="baseline" secondItem="In7-JH-NNd" secondAttribute="firstBaseline" constant="8" symbolType="layoutAnchor" id="cQZ-Jr-zxz"/>
-                            <constraint firstItem="bdX-Qn-379" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g0p-MK-wRu"/>
-                            <constraint firstItem="gql-KO-GY1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g2M-L7-vDD"/>
+                            <constraint firstItem="Sz1-Ax-Cp7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VUu-mo-D6F"/>
+                            <constraint firstItem="bdX-Qn-379" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZJw-RW-RJo"/>
+                            <constraint firstItem="bdX-Qn-379" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bcb-f0-4iw"/>
+                            <constraint firstItem="In7-JH-NNd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="f2K-OG-sYS"/>
+                            <constraint firstItem="In7-JH-NNd" firstAttribute="top" secondItem="Sz1-Ax-Cp7" secondAttribute="bottom" constant="8" symbolic="YES" id="spZ-c6-Xzx"/>
                             <constraint firstItem="In7-JH-NNd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ti9-Q0-s2d"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sz1-Ax-Cp7" secondAttribute="trailing" id="v7b-I2-Zdb"/>
-                            <constraint firstItem="bdX-Qn-379" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vUD-w5-x7z"/>
+                            <constraint firstItem="Sz1-Ax-Cp7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uoq-kr-ndf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bdX-Qn-379" secondAttribute="bottom" id="ylU-ve-GtO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xIm-hg-SJS">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="vqi-e3-zmO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0aj-t8-nPh" userLabel="Restart Button">
+                                <rect key="frame" x="264.5" y="1" width="129.5" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" systemColor="tintColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Restart"/>
+                                <connections>
+                                    <action selector="restartGame" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jxx-8K-yq6"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="matchLabel" destination="Wtw-mV-uHh" id="rdX-3z-F8D"/>
-                        <outlet property="restartButton" destination="0aj-t8-nPh" id="RFu-P6-Oh9"/>
+                        <outlet property="restartButton" destination="0aj-t8-nPh" id="1Eq-5y-71b"/>
                         <outlet property="scoreLabel" destination="yM1-km-wvy" id="e05-gu-2fL"/>
                         <outlet property="timeBonusLabel" destination="iaU-79-4ak" id="7st-mj-9vt"/>
                         <outletCollection property="cardButtons" destination="DiD-XZ-3W4" collectionClass="NSMutableArray" id="jlg-3k-jAk"/>
@@ -487,6 +545,22 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bZu-tx-40o">
+            <objects>
+                <navigationController id="3aP-NB-jbT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bhA-WN-UNk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xdk-Tv-dZv" kind="relationship" relationship="rootViewController" id="LNL-bG-pnk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XjO-Wj-PmA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1609" y="117"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemOrangeColor">
@@ -494,6 +568,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
