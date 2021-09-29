@@ -7,12 +7,12 @@
 
 import UIKit
 
-struct Game {
+struct GameModel {
     // Representa a model do game.
     
     // MARK: - Attributes
     
-    private(set) var cards: Array<Card> = [Card]()
+    private(set) var cards: Array<CardModel> = [CardModel]()
     // Variável que armazena um array com todos os cards do game.
     
     private var indexOfOneAndOnlyFaceUpCard: Int? {
@@ -72,7 +72,6 @@ struct Game {
     private(set) var bonus = ""
     private var startTime: Date?
     private var elapsedTime: TimeInterval?
-    private(set) var restartButtonView: Bool = true
     
     // MARK: - Methods
     
@@ -212,12 +211,6 @@ struct Game {
             elapsedTime = nil
         }
         
-        let numberOfCardsNotMatched = cards.indices.filter { !cards[$0].isMatched }.count
-        
-        if numberOfCardsNotMatched <= 2 {
-            restartButtonView = false
-        }
-        
     }
     
     private mutating func stoppTime() {
@@ -228,10 +221,6 @@ struct Game {
     
     mutating func resetTimeBonus() {
         bonus = ""
-    }
-    
-    mutating func resetCards() {
-        cards.removeAll()
     }
     
     // MARK: - Initializers (Constructors)
@@ -251,7 +240,7 @@ struct Game {
         for _ in 1...numberOfPairsOfCards {
             // Laço de repetições seguindo o numero de pares recebido
             
-            let card = Card()
+            let card = CardModel()
             // Intância uma constante recebendo o objeto Card
             
             cards += [card, card]

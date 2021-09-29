@@ -12,17 +12,16 @@ class GameController: UIViewController {
     
     // MARK: - Attributes
     
+    private var emoji: Dictionary<CardModel,String> = [CardModel:String]()
+    // Variável que armazena um dicionário de card e emoji no game.
+    
+    /*
+     Essa variável utiliza a função de chave e valor do dicionário para associar os emojis aos cards no game.
+     */
+    
     var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
     
-    private var emoji: Dictionary<Card,String> = [Card:String]()
-    
-//    private var themeBackgroundColor: UIColor?
-//
-//    private var themeCardColor: UIColor?
-//
-//    private var themeCardTitles: [String]?
-    
-    private lazy var game: Game = Game(numberOfPairsOfCards: numberOfPairsOfCards)
+    private lazy var game = GameModel(numberOfPairsOfCards: numberOfPairsOfCards)
     // Variável com o objeto Concentration, passando o numberOfPairsOfCards na sua inicialização.
     
     /*
@@ -35,26 +34,19 @@ class GameController: UIViewController {
     
     private let removeColor: UIColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0)
     
-    
-    // Programming assignment 1 (Task #4 & extra-credit #1)
-    //
-    // "Give your game the concept of a 'theme'. A theme determines the set of emoji from
-    // which cards are chosen"
-    //
-    // +Extra credit:
-    // "Change the background and the 'card back color' to match the theme"
-    
     ///
     /// The theme determines the game's look and feel.
     ///
-    lazy var theme: Theme = defaultTheme
+    lazy var theme: ThemeModel = defaultTheme
     
-    ///
-    /// The default theme to use
-    ///
-    private var defaultTheme = Theme(name: "Default", boardColor: #colorLiteral(red: 0.9678710938, green: 0.9678710938, blue: 0.9678710938, alpha: 1), cardColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1),
-                                    emojis: ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇",
-                                             "🍓", "🍈", "🍒", "🍑", "🍍", "🥝", "🥑", "🍅",])
+    private var defaultTheme = ThemeModel(
+        name: "Halloween",
+        boardColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+        cardColor: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1),
+        textColor: #colorLiteral(red: 0.9480113387, green: 0.440803051, blue: 0.02514018305, alpha: 1),
+        shadowTextColor: #colorLiteral(red: 0.9479655623, green: 0.818603456, blue: 0.7748424411, alpha: 1),
+        emojis: ["🎃", "👻", "🦇", "🧛‍♂️", "🤡", "💀", "👹", "👽", "🧙🏻‍♀️", "🧟‍♀️", "🍭", "🍬"]
+    )
 
     // MARK: - IBOutlet
     
@@ -65,6 +57,8 @@ class GameController: UIViewController {
     @IBOutlet private weak var scoreLabel: UILabel!
 
     @IBOutlet private weak var timeBonusLabel: UILabel!
+
+    @IBOutlet private weak var restartButton: UIButton!
     
     // MARK: - IBAction
     
@@ -88,22 +82,16 @@ class GameController: UIViewController {
         game.chooseCard(at: cardNumber)
         // Diz a model qual cartão foi escolhido e executa lógica de combinação e virada das cartas
         
-        updateUIFromModel()
+        updateCardsView()
         // Atualiza a view dos cards para gerar efeitos visuais.
         
         updateLabelsView()
         // Atualiza a view das labels para gerar efeitos visuais.
         
-        
-    }
-    
-    @IBAction func restartButton(_ sender: UIButton) {
-        initialSetup()
     }
     
     // MARK: - Methods
     
-    /*
     /// Mantém a visualização atualizada com base no estado dos cards
     private func updateCardsView() {
         
@@ -113,31 +101,37 @@ class GameController: UIViewController {
             let card = game.cards[index]
             
             if card.isFaceUp {
+                
                 button.setTitle(insertEmoji(for: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 
                 if card.twoCardsFaceUp, !card.isMatched {
-                    cardEffect(button: button, time: secondsToTurnDown, color: themeCardColor!)
+                    
+                    cardEffect(button: button, time: secondsToTurnDown, color: theme.cardColor)
+                    
                 }
+                
                 else if card.twoCardsFaceUp, card.isMatched {
+                    
                     cardEffect(button: button, time: secondsToRemove, color: removeColor)
+                    
                 }
                 
             } else {
                 // Se o card estiver virado para baixo (isFaceUp = false)
+                
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? removeColor : themeCardColor
+                button.backgroundColor = card.isMatched ? removeColor : theme.cardColor
+                
             }
         }
     }
-     */
     
     /// Mantém a visualização atualizada com base no estado das labels
     private func updateLabelsView() {
         
         timeBonusLabel.text = game.bonus
-        //removeEffect(element: timeBonusLabel)
-        removeTimeBonusEffect(label: timeBonusLabel)
+        removeEffect(element: timeBonusLabel)
         game.resetTimeBonus()
         matchLabel.text = "Matches: \(game.matches)"
         scoreLabel.text = "SCORE: \(game.score)"
@@ -176,120 +170,23 @@ class GameController: UIViewController {
             })}
     }
     
-    /*
+   
     /// Método para retornar um emoji ao card fornecido
     /// - Parameter card: Card que receberá um emoji e será associado.
-    private func insertEmoji(for card: Card) -> String {
+    private func insertEmoji(for card: CardModel) -> String {
+        
         assert(game.cards.contains(card), "ConcentrationViewController.emoji(at: \(card)): card was not in cards")
-
-        var emojis: Array<String> = theme.emojis.shuffled()
         
-        if emoji[card] == nil, emojis.count > 0 {
+        if emoji[card] == nil, theme.emojis.count > 0 {
             
-            let randomIndex = emojis.index(emojis.startIndex, offsetBy: emojis.count.arc4random)
-            emoji[card] = String(emojis.remove(at: randomIndex))
+            let randomStringIndex = theme.emojis.index(theme.emojis.startIndex, offsetBy: theme.emojis.count.arc4random)
+            
+            emoji[card] = String(theme.emojis.remove(at: randomStringIndex))
+            
         }
         
         return emoji[card] ?? "?"
-
-    }
-     */
-    
-//    /// Método para definir o tema do game
-//    private func settingTheme() {
-//        let themes = [halloweenTheme, foodTheme, animalsTheme]
-//        let randomTheme = themes.count.arc4random
-//        themeBackgroundColor = themes[randomTheme].backgroundColor
-//        themeCardColor = themes[randomTheme].cardColor
-//        themeCardTitles = themes[randomTheme].cardTitles
-//        view.backgroundColor = themeBackgroundColor
-//        scoreLabel.textColor = themeCardColor
-//        matchLabel.textColor = themeCardColor
-//        restartButton.tintColor = themeCardColor
-//        timeBonusLabel.textColor = themeCardColor
-//    }
-    
-    ///
-    /// Get an emoji for the given card
-    ///
-    private func insertEmoji(for card: Card) -> String {
-        // Return the emoji, or "?" if none available
-        return emoji[card] ?? "?"
-    }
-
-    ///
-    /// Assign an emoji for each card identifier
-    ///
-    private func mapCardsToEmojis() {
-
-        // List of emojis available for the current theme
-        var emojis = theme.emojis
-
-        // Suffle them (to have slighlty different emojis with each new game)
-        emojis.shuffle()
-
-        for card in game.cards {
-            // Make sure emojis has item(s) and the card is not set yet
-            if !emojis.isEmpty, emoji[card] != nil {
-                // Assign emoji
-                emoji[card] = emojis.removeFirst()
-            }
-            else {
-                emoji[card] = "?"
-            }
-        }
-    }
-    
-    ///
-    /// Keeps the UI updated based on the model's state
-    ///
-    private func updateUIFromModel() {
         
-        for index in cardButtons.indices {
-            
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            
-            if card.isFaceUp {
-                button.setTitle(insertEmoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                
-                if card.twoCardsFaceUp, !card.isMatched {
-                    cardEffect(button: button, time: secondsToTurnDown, color: theme.cardColor)
-                }
-                else if card.twoCardsFaceUp, card.isMatched {
-                    cardEffect(button: button, time: secondsToRemove, color: removeColor)
-                }
-                
-            } else {
-                // Se o card estiver virado para baixo (isFaceUp = false)
-                button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? removeColor : theme.cardColor
-            }
-        }
-    }
-    
-    ///
-    /// Setups a new game
-    ///
-    private func initialSetup() {
-        // Create new Concentration game
-        game = Game(numberOfPairsOfCards: numberOfPairsOfCards)
-        
-        // Match board color (view's background) with the current theme color
-        self.view.backgroundColor = theme.boardColor
-        
-        // Get emojis for each card
-        mapCardsToEmojis()
-        
-        // Update cards view
-        updateUIFromModel()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do initialSetup
-        initialSetup()
     }
     
 }

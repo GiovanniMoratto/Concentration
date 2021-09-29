@@ -17,27 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4ccfdaf6092dc341376e6fdb8130d09d" translatesAutoresizingMaskIntoConstraints="NO" id="fUX-dt-mk5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift-og" translatesAutoresizingMaskIntoConstraints="NO" id="FWw-rN-a4c">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fUX-dt-mk5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0W9-bH-SyP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fUX-dt-mk5" secondAttribute="bottom" id="8c4-Ap-g5k"/>
-                            <constraint firstItem="fUX-dt-mk5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WeA-xr-ie0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fUX-dt-mk5" secondAttribute="trailing" id="joK-3l-uCw"/>
+                            <constraint firstItem="FWw-rN-a4c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="31o-kg-ZFs"/>
+                            <constraint firstItem="FWw-rN-a4c" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8MT-kF-5Nz"/>
+                            <constraint firstItem="FWw-rN-a4c" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CfJ-CH-GY6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FWw-rN-a4c" secondAttribute="trailing" id="Fcy-bh-rzj"/>
+                            <constraint firstItem="FWw-rN-a4c" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="jUv-qs-dBZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FWw-rN-a4c" secondAttribute="bottom" id="mJp-lB-TvM"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="4ccfdaf6092dc341376e6fdb8130d09d" width="1240" height="1016"/>
+        <image name="swift-og" width="1200" height="1200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

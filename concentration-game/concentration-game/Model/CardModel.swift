@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card: Hashable {
+struct CardModel: Hashable {
     // Representa a model de um card no game
     
     // MARK: - Attributes
@@ -51,7 +51,7 @@ struct Card: Hashable {
         }
     
     /// protocols stubs
-    static func ==(lhs: Card, rhs: Card) -> Bool {
+    static func ==(lhs: CardModel, rhs: CardModel) -> Bool {
         return lhs.identifier == rhs.identifier
     }
     
@@ -63,7 +63,7 @@ struct Card: Hashable {
          Cria um card com o ID gerado. Sempre que instanciar um card, o atributo identifier será atualizado para um novo valor.
          */
         
-        self.identifier = Card.getUniqueIdentifier()
+        self.identifier = CardModel.getUniqueIdentifier()
         // self == this no java
     }
     
