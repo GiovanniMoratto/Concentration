@@ -30,7 +30,7 @@ struct GameModel {
              Através do get posso incorporar um código que será executado quando a variável for chamada.
              Caso fosse uma properties read-only utilizaria apenas o get ou somente seu retorno, sem a declaração do get.
              */
-
+            
             return cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly
             
             /*
@@ -48,7 +48,7 @@ struct GameModel {
              O compilador aloca um nome padrão (newValue) caso não haja nenhum no valor atribuido na definção do configurador.
              Ex com nome: set(algumNome) {}
              */
-
+            
             for index in cards.indices {
                 // loop varrendo todos os cards pelos indices.
                 
@@ -70,7 +70,9 @@ struct GameModel {
     // Pontuação no game
     
     private(set) var bonus = ""
+    
     private var startTime: Date?
+    
     private var elapsedTime: TimeInterval?
     
     // MARK: - Methods
@@ -134,7 +136,7 @@ struct GameModel {
                     
                     if let elapsedTimeUnwrapped = elapsedTime {
                         // unwraps elapsedTime optional
-
+                        
                         if elapsedTimeUnwrapped < 0.75 {
                             bonus = "Time Bonus: +2"
                             score += 2
@@ -173,14 +175,14 @@ struct GameModel {
                  Altera o valor do atributo isFaceUp para true.
                  Nesse momento tenho duas cartas viradas para cima: 1.cards[matchIndex] e 2.cards[index].
                  */
-
+                
                 cards[matchIndex].twoCardsFaceUp = true
                 cards[index].twoCardsFaceUp = true
                 // Altero o valor dos atributos twoCardsFaceUp para true.
                 
                 cards[index].flipCount += 1
                 cards[matchIndex].flipCount += 1
-
+                
             }
             
             else {
@@ -234,7 +236,7 @@ struct GameModel {
         /*
          Atribui a obrigatóriedade de recebimento ao atributo numberOfPairsOfCards ao instanciar o objeto. Com isso, constrói o game com base no número de pares informado.
          */
-
+        
         assert(numberOfPairsOfCards > 0 && numberOfPairsOfCards % 2 == 0, "ConcentrationModel.init(at: \(numberOfPairsOfCards)): must have at least one pair of cards")
         
         /*

@@ -18,7 +18,7 @@ class GameController: UIViewController {
     private var game: GameModel!
     
     private var emoji: Dictionary<CardModel,String> = [CardModel:String]()
-
+    
     private let secondsToRemoveTheCard: Double = 0.7
     
     private let secondsToRemoveTheBonus: Double = 1.5
@@ -28,11 +28,11 @@ class GameController: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet private(set) var cardButtons: [UIButton]!
-
+    
     @IBOutlet private weak var matchLabel: UILabel!
-
+    
     @IBOutlet private weak var scoreLabel: UILabel!
-
+    
     @IBOutlet private weak var timeBonusLabel: UILabel!
     
     @IBOutlet private weak var restartButton: UIButton!
@@ -78,14 +78,16 @@ class GameController: UIViewController {
             if card.isFaceUp {
                 button.setTitle(insertEmoji(for: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                button.borderColor = theme.cardBorderColorFront
                 if card.twoCardsFaceUp, !card.isMatched {
-                    turnEffect(button: button, time: secondsToTurnDown, color: theme.cardColor)
+                    turnEffect(button: button, time: secondsToTurnDown, cardColor: theme.cardColor, borderColor: theme.cardBorderColorBack)
                 }
                 else if card.twoCardsFaceUp, card.isMatched {
                     removeEffect(element: button, time: secondsToRemoveTheCard)
                 }
             } else {
                 button.setTitle("", for: UIControl.State.normal)
+                button.borderColor = theme.cardBorderColorBack
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0) : theme.cardColor
             }
         }
@@ -105,11 +107,12 @@ class GameController: UIViewController {
     /// - Parameter button: UIButton que receberá o efeito
     /// - Parameter time: Tempo que será atribuido ao efeito
     /// - Parameter color: Cor que será atribuida ao card
-    private func turnEffect(button: UIButton, time: Double, color: UIColor) {
+    private func turnEffect(button: UIButton, time: Double, cardColor: UIColor, borderColor: UIColor) {
         Dispatch.DispatchQueue.main.asyncAfter(deadline: .now() + time + 0.5) {
             UIView.animate(withDuration: time, animations: {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = color
+                button.backgroundColor = cardColor
+                button.borderColor = borderColor
             })}
     }
     
@@ -141,10 +144,11 @@ class GameController: UIViewController {
         self.matchLabel.textColor = theme.textColor
         self.scoreLabel.textColor = theme.textColor
         self.timeBonusLabel.textColor = theme.textColor
-        self.restartButton.tintColor = theme.textColor
+        //self.restartButton.tintColor = theme.textColor
         self.matchLabel.shadowColor = theme.shadowTextColor
         self.scoreLabel.shadowColor = theme.shadowTextColor
         self.timeBonusLabel.shadowColor = theme.shadowTextColor
+        //self.navigationItem.backButtonDisplayMode = .minimal
         mapCardsToEmojis()
         updateUIFromModel()
     }

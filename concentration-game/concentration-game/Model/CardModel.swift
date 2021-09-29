@@ -46,9 +46,9 @@ struct CardModel: Hashable {
     func hash(into hasher: inout Hasher) {
         // var hashValue: Int { return identifier } - Deprecated
         
-            hasher.combine(identifier)
-            hasher.combine(identifier)
-        }
+        hasher.combine(identifier)
+        hasher.combine(identifier)
+    }
     
     /// protocols stubs
     static func ==(lhs: CardModel, rhs: CardModel) -> Bool {

@@ -21,6 +21,10 @@ struct ThemeModel {
     
     var shadowTextColor: UIColor
     
+    var cardBorderColorBack: UIColor
+    
+    var cardBorderColorFront: UIColor
+    
     var emojis: Array<String>
-
+    
 }

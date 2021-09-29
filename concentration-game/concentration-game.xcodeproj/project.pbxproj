@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B103C3F82704F840007DA1C4 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103C3F72704F840007DA1C4 /* UIButtonExtension.swift */; };
 		B119E6E426F3B50100C418EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E6E326F3B50100C418EB /* AppDelegate.swift */; };
 		B119E6E626F3B50100C418EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E6E526F3B50100C418EB /* SceneDelegate.swift */; };
 		B119E6E826F3B50100C418EB /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119E6E726F3B50100C418EB /* GameController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B103C3F72704F840007DA1C4 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		B119E6E026F3B50100C418EB /* concentration-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "concentration-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B119E6E326F3B50100C418EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B119E6E526F3B50100C418EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				B15D00B226FA92F0001A41AB /* CollectionExtension.swift */,
 				B1ECE80C26FC0213007470A4 /* IntExtension.swift */,
+				B103C3F72704F840007DA1C4 /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B119E6E826F3B50100C418EB /* GameController.swift in Sources */,
+				B103C3F82704F840007DA1C4 /* UIButtonExtension.swift in Sources */,
 				B15D00B326FA92F0001A41AB /* CollectionExtension.swift in Sources */,
 				B119E6E426F3B50100C418EB /* AppDelegate.swift in Sources */,
 				B119E71E26F4408300C418EB /* CardModel.swift in Sources */,
